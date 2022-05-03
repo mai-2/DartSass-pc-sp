@@ -45,9 +45,10 @@ $white: #fff;
 
 //ブレイクポイント
 $breakpoints: (
-  sm: 600,
-  md: 768,
-  lg: 1024,
+  sm: 375,
+  md: 767,
+  lg: 1023,
+  inner: strip-unit($inner),
   xl: 1440,
 );
 
@@ -57,6 +58,7 @@ $mediaquerys: (
   sm: "screen and (min-width: #{map-get($breakpoints,'sm')}px)",
   md: "screen and (min-width: #{map-get($breakpoints,'md')}px)",
   lg: "screen and (min-width: #{map-get($breakpoints,'lg')}px)",
+  inner: "screen and (max-width: #{map-get($breakpoints,'inner')}px)",
   xl: "screen and (min-width: #{map-get($breakpoints,'xl')}px)",
 );
 
@@ -80,14 +82,14 @@ $mediaquerys: (
 //768px以上を表示
 .u-desktop {
   display: none;
-  @include mq("md") {
+  @include mq("lg") {
     display: block;
   }
 }
 
 //モバイルのみ表示
 .u-mobile {
-  @include mq("md") {
+  @include mq("lg") {
     display: none;
   }
 }
